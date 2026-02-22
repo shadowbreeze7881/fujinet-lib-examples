@@ -1,7 +1,7 @@
 
 CC        := zcc
 AR        := z80asm
-CFLAGS    := +$(CURRENT_TARGET)
+CFLAGS    := +$(CURRENT_TARGET) -subtype=$(SUBTYPE)
 # ASFLAGS   :=
 ASMEXT    := .asm
 
