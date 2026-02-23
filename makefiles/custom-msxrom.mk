@@ -5,7 +5,7 @@
 ################################################################
 # DISK creation
 
-SUFFIX = .com
+SUFFIX = .rom
 ROM_TASKS += .create-rom
 #VICE_HOME := $(dir $(shell which xvic))
 
