@@ -124,6 +124,8 @@ ifeq ($(CC),cl65)
 	$(CC) -t $(CURRENT_TARGET) -c --create-dep $(@:$(OBJEXT)=.d) $(CFLAGS) --listing $(@:$(OBJEXT)=.lst) -o $@ $<
 else ifeq ($(CC),iix compile)
 	$(CC) $(CFLAGS) $< keep=$(subst .root,,$@)
+else ifeq ($(CC),zcc)
+	$(CC) -c $(CFLAGS) -o $@ $<
 else
 	$(CC) -c --deps $(CFLAGS) -o $@ $<
 endif
@@ -135,6 +137,8 @@ ifeq ($(CC),cl65)
 	$(CC) -t $(CURRENT_TARGET) -c --create-dep $(@:$(OBJEXT)=.d) $(CFLAGS) --listing $(@:$(OBJEXT)=.lst) -o $@ $<
 else ifeq ($(CC),iix compile)
 	$(CC) $(CFLAGS) $< keep=$(subst .root,,$@)
+else ifeq ($(CC),zcc)
+	$(CC) +$(CURRENT_TARGET) -c $(ASLAGS) -o $@ $<
 else
 	$(CC) -c --deps $(CFLAGS) -o $@ $<
 endif
@@ -146,6 +150,9 @@ ifeq ($(CC),cl65)
 else ifeq ($(CC),iix compile)
 	@echo "TODO: What is the compile command for the application on apple2gs"
 	# $(CC) $(CFLAGS) $< keep=$(subst .root,,$@)
+else ifeq ($(CC),zcc)
+	$(AR) -x$@.lib $(OBJECTS)
+	mv -v $@.lib $@
 else
 	@echo "TODO: Other compilers go here"
 endif
