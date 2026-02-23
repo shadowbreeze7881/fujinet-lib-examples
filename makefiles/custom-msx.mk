@@ -18,8 +18,8 @@ DISK_FILE = $(DIST_DIR)/$(PROGRAM).dsk
 		if [ -f "$(DISK_FILE)" ] ; then \
 			rm "$(DISK_FILE)" ; \
 		fi ; \
-    dsktool C 720 $(DISK_FILE) ; \
-    dsktool A $(DISK_FILE) $(DIST_DIR)/$(PROGRAM_TGT)$(SUFFIX) ; \
+	    dsktool C 720 $(DISK_FILE) ; \
+	    dsktool A $(DISK_FILE) $(DIST_DIR)/$(PROGRAM_TGT)$(SUFFIX) ; \
 		rm $(DIST_DIR)/$(PROGRAM_TGT)$(SUFFIX)  ; \
 	else \
 		echo -e "\nERROR! You must install dsktool from https://github.com/nataliapc/MSX_devs/tree/master/dsktool to create msx disks\n" ; \
