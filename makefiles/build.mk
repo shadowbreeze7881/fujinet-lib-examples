@@ -95,7 +95,7 @@ endif
 -include ./application.mk
 
 .SUFFIXES:
-.PHONY: all clean release $(DISK_TASKS) $(BUILD_TASKS) $(PROGRAM_TGT) $(ALL_TASKS)
+.PHONY: all clean release $(DISK_TASKS) $(ROM_TASKS) $(BUILD_TASKS) $(PROGRAM_TGT) $(ALL_TASKS)
 
 all: $(ALL_TASKS) $(PROGRAM_TGT)
 
@@ -178,3 +178,5 @@ release: all | $(BUILD_DIR) $(DIST_DIR)
 	cp $(BUILD_DIR)/$(PROGRAM_TGT) $(DIST_DIR)/$(PROGRAM_TGT)$(SUFFIX)
 
 disk: release $(DISK_TASKS)
+
+rom: release $(ROM_TASKS)
