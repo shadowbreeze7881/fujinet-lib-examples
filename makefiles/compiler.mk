@@ -13,6 +13,11 @@ else ifeq ($(CURRENT_TARGET),msx)
 SUBTYPE := msxdos
 -include ../../makefiles/compiler-z88dk.mk
 
+else ifeq ($(CURRENT_TARGET),msxrom)
+
+SUBTYPE := rom
+-include ../../makefiles/compiler-z88dk.mk
+
 else
 
 -include ../../makefiles/compiler-cc65.mk
