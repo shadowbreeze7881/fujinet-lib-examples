@@ -16,6 +16,7 @@ SUBTYPE := msxdos
 else ifeq ($(CURRENT_TARGET),msxrom)
 
 SUBTYPE := rom
+CREATE_APP := -create-app
 -include ../../makefiles/compiler-z88dk.mk
 
 else
