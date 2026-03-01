@@ -3,7 +3,8 @@
 # Set the TARGETS and PROGRAM values as required.
 # See makefiles/build.mk for details on directory structure for src files and how to add custom extensions to the build.
 
-TARGETS = atari apple2 c64
+#TARGETS = atari apple2 c64
+TARGETS = msx msxrom
 PROGRAM := base64
 
 SUB_TASKS := clean disk test release
