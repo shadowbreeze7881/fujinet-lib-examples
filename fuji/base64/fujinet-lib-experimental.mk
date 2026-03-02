@@ -1,3 +1,5 @@
+$(info Currently in fujinet-lib-experimental.mk)
+
 FUJINET_LIB_EXP_VERSION := 1.0.0
 
 FUJINET_LIB_EXP = $(CACHE_DIR)/fujinet-lib-experimental
@@ -12,7 +14,7 @@ FUJINET_LIB_EXP_REPO_URL = https://github.com/FozzTexx/fujinet-lib-experimental.
 		echo "Building project in $(FUJINET_LIB_EXP_VERSION_DIR)..."; \
 		cd $(FUJINET_LIB_EXP_VERSION_DIR) && make $(CURRENT_TARGET); \
 		cp $(FUJINET_LIB_EXP_VERSION_DIR)/r2r/$(CURRENT_TARGET)/fujinet.$(CURRENT_TARGET).lib $(FUJINET_LIB_EXP_PATH); \
-		echo $(FUJINET_LIB_EXP_VERSION) > src/version.txt; \
+		echo $(FUJINET_LIB_EXP_VERSION) > version.txt; \
 	else \
 		echo "A directory already exists with version $(FUJINET_LIB_EXP_VERSION) - please remove it first"; \
 	fi

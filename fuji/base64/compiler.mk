@@ -2,26 +2,26 @@
 $(info current target in COMPILER.MK is $(CURRENT_TARGET))
 ifeq ($(CURRENT_TARGET),coco)
 
--include ../../makefiles/compiler-cmoc.mk
+-include compiler-cmoc.mk
 
 else ifeq ($(CURRENT_TARGET),apple2gs)
 
--include ../../makefiles/compiler-orca.mk
+-include compiler-orca.mk
 
 else ifeq ($(CURRENT_TARGET),msx)
 
-SUBTYPE := msx
--include ../../makefiles/compiler-z88dk.mk 
+SUBTYPE := msxdos
+-include compiler-z88dk.mk 
 
 else ifeq ($(CURRENT_TARGET),msxrom)
 
 SUBTYPE := rom 
 CREATE_APP := -create-app 
--include ../../makefiles/compiler-z88dk.mk
+-include compiler-z88dk.mk
 
 else
 
--include ../../makefiles/compiler-cc65.mk
+-include compiler-cc65.mk
 
 endif
 

@@ -6,6 +6,16 @@
 #TARGETS = atari apple2 c64
 TARGETS = msx msxrom
 PROGRAM := base64
+FUJINET_LIB_EX_ROOT_DIR := /home/sven86/Dropbox/Fujinet_Stuff/Programming_Stuff/fujinet-msx/fujinet-lib-examples
+FUJINET_LIB_EX_MKFILES_DIR := $(FUJINET_LIB_EX_ROOT_DIR)/makefiles
+
+# Define the path and directory of the current makefile
+# MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+# MKFILE_DIR := $(dir $(MKFILE_PATH))
+
+# $(info The makefile is in: $(MKFILE_DIR))
+# $(info Two levels above is $(shell cd ../..; pwd))
+# $(info Absolute root path is $(FUJINET_LIB_EX_ROOT))
 
 SUB_TASKS := clean disk test release
 .PHONY: all help $(SUB_TASKS)
@@ -15,7 +25,7 @@ all:
 		echo "-------------------------------------"; \
 		echo "Building $$target"; \
 		echo "-------------------------------------"; \
-		$(MAKE) --no-print-directory -f ../../makefiles/build.mk CURRENT_TARGET=$$target PROGRAM=$(PROGRAM) $(MAKECMDGOALS); \
+		$(MAKE) --no-print-directory -f build.mk CURRENT_TARGET=$$target PROGRAM=$(PROGRAM) FUJINET_LIB_EX_ROOT_DIR=$(FUJINET_LIB_EX_ROOT_DIR) FUJINET_LIB_EX_MKFILES_DIR=$(FUJINET_LIB_EX_MKFILES_DIR) $(MAKECMDGOALS); \
 	done
 
 $(SUB_TASKS): _do_all
