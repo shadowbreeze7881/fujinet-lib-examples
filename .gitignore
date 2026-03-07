@@ -3,6 +3,7 @@ _libs/
 build/
 obj/
 dist/
+r2r/
 
 altirra-debug.ini
 Makefile.options
