@@ -18,7 +18,7 @@ SRC_DIRS = src src/%PLATFORM%
 # - a URL to a git repo
 # - empty which will use whatever is the latest
 # - undefined, no fujinet-lib will be used
-FUJINET_LIB = /home/mk2s/Documents/fujinet-lib-experimental
+FUJINET_LIB = /home/sven86/Dropbox/Fujinet_Stuff/Programming_Stuff/fujinet-msx/fujinet-lib-experimental
 
 # Define extra dirs ("combos") that expand with a platform.
 # Format: platform+=combo1,combo2

@@ -31,73 +31,73 @@ int main(void)
   uint8_t x, y;
   screensize(&x, &y);
   clrscr();
-  cputsxy((x - strlen(header))/2, 0, header);
-  cputsxy((x - strlen(version))/2, 1, version);
+  fc_cputsxy((x - strlen(header))/2, 0, header);
+  fc_cputsxy((x - strlen(version))/2, 1, version);
 
-  cputsxy(8, 3, "INP COM LEN OUTPUT");
+  fc_cputsxy(8, 3, "INP COM LEN OUTPUT");
 
-  cputsxy(1, 5, "ENCODE");
+  fc_cputsxy(1, 5, "ENCODE");
 
   if (!fuji_base64_encode_input((char *)test_text, strlen(test_text))) {
-    cputsxy(0, 10, "BASE64 ENCODE INPUT FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 ENCODE INPUT FAILED\n");
     return 1;
   }
-  gotox(9);
+  fc_gotox(9);
   cputc('X');
 
   if (!fuji_base64_encode_compute()) {
-    cputsxy(0, 10, "BASE64 ENCODE COMPUTE FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 ENCODE COMPUTE FAILED\n");
     return 1;
   }
-  gotox(13);
+  fc_gotox(13);
   cputc('X');
 
   if (!fuji_base64_encode_length(&encoded_len)) {
-    cputsxy(0, 10, "BASE64 ENCODE LENGTH FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 ENCODE LENGTH FAILED\n");
     return 1;
   }
-  gotox(17);
+  fc_gotox(17);
   cprintf("%ld", encoded_len);
   
   if (!fuji_base64_encode_output(encoded_text, encoded_len)) {
-    cputsxy(0, 10, "BASE64 ENCODE OUTPUT FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 ENCODE OUTPUT FAILED\n");
     return 1;
   }
-  gotox(20);
+  fc_gotox(20);
   cputs(encoded_text);
 
 
-  cputsxy(1, 6, "DECODE");
+  fc_cputsxy(1, 6, "DECODE");
 
   if (!fuji_base64_decode_input((char *)test_base64,strlen(test_base64))) {
-    cputsxy(0, 10, "BASE64 DECODE INPUT FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 DECODE INPUT FAILED\n");
     return 1;
   }
-  gotox(9);
+  fc_gotox(9);
   cputc('X');
 
   if (!fuji_base64_decode_compute()) {
-    cputsxy(0, 10, "BASE64 DECODE COMPUTE FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 DECODE COMPUTE FAILED\n");
     return 1;
   }
-  gotox(13);
+  fc_gotox(13);
   cputc('X');
 
   if (!fuji_base64_decode_length(&decoded_len)) {
-    cputsxy(0, 10, "BASE64 DECODE LENGTH FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 DECODE LENGTH FAILED\n");
     return 1;
   }
-  gotox(17);
+  fc_gotox(17);
   cprintf("%ld", decoded_len);
 
   if (!fuji_base64_decode_output(decoded_text, decoded_len)) {
-    cputsxy(0, 10, "BASE64 ENCODE OUTPUT FAILED\n");
+    fc_cputsxy(0, 10, "BASE64 ENCODE OUTPUT FAILED\n");
     return 1;
   }
-  gotox(20);
+  fc_gotox(20);
   cputs(decoded_text);
 
-  gotoxy(2, 11);
+  fc_gotoxy(2, 11);
 
   cgetc();
   return 0;
