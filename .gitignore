@@ -14,3 +14,5 @@ Makefile.options
 *.po
 
 .vscode
+defoogi
+fujinet-lib-examples.code-workspace
