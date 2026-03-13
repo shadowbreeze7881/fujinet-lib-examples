@@ -9,6 +9,14 @@
 #define CH_DEL 0x7F
 #endif
 
+#ifndef CH_CURS_LEFT
+#define CH_CURS_LEFT 0x08
+#endif
+
+#ifndef CH_ENTER
+#define CH_ENTER 0x0D
+#endif
+
 void get_line(char* buf, uint8_t max_len) {
 	uint8_t c;
 	uint16_t i = 0;
